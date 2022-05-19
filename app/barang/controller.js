@@ -77,6 +77,7 @@ module.exports = {
 				barang,
 				category,
 				location,
+				name: req.session.user.name,
 				title: 'Halaman Edit Pengadaan',
 			});
 		} catch (err) {
