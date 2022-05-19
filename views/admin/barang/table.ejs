@@ -1,0 +1,36 @@
+<table id="example2" class="table table-bordered table-hover">
+  <thead>
+  <tr>
+    <th>No.</th>
+    <th>Nama Barang</th>
+    <th>Kategori</th>
+    <th>Lokasi</th>
+    <th>Tanggal</th>
+    <th>Kebutuhan</th>
+    <th>Deskripsi</th>
+    <th>Aksi</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% for(let i=0;i < barang.length; i++){%>
+    <tr>
+      <td><%= i + 1 %></td>
+      <td><%= barang[i].name %></td>
+      <td><%= barang[i]?.category?.name ?? '-' %></td>
+      <td><%= barang[i]?.location?.name ?? '-' %></td>
+      <td><%= barang[i].reservationdate %></td>
+      <td><%= barang[i].requirement %></td>
+      <td><%= barang[i].description %></td>
+      <td>
+        <form action="/barang/delete/<%= barang[i]._id %>?_method=DELETE"
+          method="POST">
+          <a href="/barang/edit/<%= barang[i]._id %>" class="btn btn-warning">
+            <i class="fas fa-pencil-alt"></i>Ubah</a>
+          <button class="btn btn-danger">
+            <i class="fa fa-trash"></i>Hapus</button>
+        </form>
+      </td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>

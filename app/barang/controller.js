@@ -10,12 +10,13 @@ module.exports = {
 
 			const alert = { message: alertMessage, status: alertStatus };
 
-			const barang = await Barang.find();
+			const barang = await Barang.find().populate('category').populate('location');
+
 			res.render('admin/barang/view_barang', {
 				barang,
 				alert,
 				name: req.session.user.name,
-				title: 'Halaman barang',
+				title: 'Halaman Pengadaan',
 			});
 		} catch (err) {
 			req.flash('alertMessage', `${err.message}`);
@@ -32,7 +33,7 @@ module.exports = {
 				category,
 				location,
 				name: req.session.user.name,
-				title: 'Halaman tambah barang',
+				title: 'Halaman Tambah Pengadaan',
 			});
 		} catch (err) {
 			req.flash('alertMessage', `${err.message}`);
@@ -76,7 +77,7 @@ module.exports = {
 				barang,
 				category,
 				location,
-				title: 'Halaman edit barang',
+				title: 'Halaman Edit Pengadaan',
 			});
 		} catch (err) {
 			req.flash('alertMessage', `${err.message}`);
@@ -96,7 +97,7 @@ module.exports = {
 		try {
 			const { id } = req.params;
 
-			await Category.findByIdAndRemove({ _id: id });
+			await Barang.findByIdAndRemove({ _id: id });
 			req.flash('alertMessage', 'Berhasil Hapus Kategori');
 			req.flash('alertStatus', 'success');
 
