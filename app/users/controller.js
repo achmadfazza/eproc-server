@@ -39,6 +39,8 @@ module.exports = {
 							name: check.name,
 						};
 						res.redirect('/dashboard');
+						console.log('check');
+						console.log(check);
 					} else {
 						req.flash('alertMessage', 'Kata sandi yang anda masukan salah');
 						req.flash('alertStatus', 'danger');

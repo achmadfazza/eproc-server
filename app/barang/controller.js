@@ -88,6 +88,9 @@ module.exports = {
 	},
 	actionEdit: async (req, res) => {
 		try {
+			// coba dulu
+			const { id } = req.params;
+			const { name, requirement, description, category, location } = req.body;
 		} catch (err) {
 			req.flash('alertMessage', `${err.message}`);
 			req.flash('alertStatus', 'danger');
