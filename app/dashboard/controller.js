@@ -1,7 +1,7 @@
 const Category = require('../category/model');
 const Location = require('../location/model');
 const Barang = require('../barang/model');
-const User = require('../users/model');
+const User = require('../login/model');
 
 module.exports = {
 	index: async (req, res) => {

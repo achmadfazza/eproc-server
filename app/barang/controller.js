@@ -91,6 +91,23 @@ module.exports = {
 			// coba dulu
 			const { id } = req.params;
 			const { name, requirement, description, category, location } = req.body;
+
+			await Barang.findByIdAndUpdate(
+				{
+					_id: id,
+				},
+				{
+					name,
+					requirement,
+					description,
+					category,
+					location,
+				}
+			);
+			req.flash('alertMessage', 'Berhasil Ubah Barang');
+			req.flash('alertStatus', 'success');
+
+			res.redirect('/barang');
 		} catch (err) {
 			req.flash('alertMessage', `${err.message}`);
 			req.flash('alertStatus', 'danger');

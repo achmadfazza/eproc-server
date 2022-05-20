@@ -1,0 +1,20 @@
+<table id="example2" class="table table-bordered table-hover">
+  <thead>
+  <tr>
+    <th>No.</th>
+    <th>Role</th>
+    <th>Username</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Password</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% for(let i=0;i < category.length; i++){%>
+    <tr>
+      <td><%= i + 1 %></td>
+      <td><%= category[i].name %></td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
