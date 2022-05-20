@@ -13,10 +13,12 @@ module.exports = {
 				user,
 				alert,
 				name: req.session.user.name,
-				title: 'Halaman buku',
+				title: 'Halaman User',
 			});
 		} catch (err) {
-			console.log(err);
+			req.flash('alertMessage', `${err.message}`);
+			req.flash('alertStatus', 'danger');
+			res.redirect('/users');
 		}
 	},
 };

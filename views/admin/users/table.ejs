@@ -2,18 +2,20 @@
   <thead>
   <tr>
     <th>No.</th>
-    <th>Role</th>
     <th>Username</th>
-    <th>Name</th>
+    <th>Role</th>
     <th>Email</th>
     <th>Password</th>
   </tr>
   </thead>
   <tbody>
-  <% for(let i=0;i < category.length; i++){%>
+  <% for(let i=0;i < user.length; i++){%>
     <tr>
       <td><%= i + 1 %></td>
-      <td><%= category[i].name %></td>
+      <td><%= user[i].name %></td>
+      <td><%= user[i].role %></td>
+      <td><%= user[i].email %></td>
+      <td><%= user[i].password %></td>
     </tr>
     <% } %>
   </tbody>
