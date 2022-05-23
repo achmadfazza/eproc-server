@@ -13,7 +13,11 @@ module.exports = {
 	},
 	landingPage: async (req, res) => {
 		try {
-			const barang = await Barang.findOne({});
+			const barang = await Barang.find();
+
+			if (!barang) {
+				return res.status(404).json({ message: 'Barang tidak ditemukan.!' });
+			}
 
 			res.status(200).json({ data: barang });
 		} catch (err) {
