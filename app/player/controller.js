@@ -7,7 +7,7 @@ module.exports = {
 		try {
 			const barang = await Barang.find()
 				.select('_id name category location reservationdate description')
-				.populate('category')
+				.populate('category', '_id name')
 				.populate('location');
 
 			if (!barang) {
