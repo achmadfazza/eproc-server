@@ -16,7 +16,7 @@ const barangRouter = require('./app/barang/router');
 const loginRouter = require('./app/login/router');
 const usersRouter = require('./app/users/router');
 const transactionRouter = require('./app/transaction/router');
-const playerRouter = require('./app/player/router');
+const playerRouter = require('./app/supplier/router');
 
 var app = express();
 const URL = '/api/v1';
