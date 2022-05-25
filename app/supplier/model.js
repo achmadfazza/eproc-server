@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-let playerSchema = mongoose.Schema({
+let supplierSchema = mongoose.Schema({
 	namaSupplier: {
 		type: String,
 		require: [true, 'nama harus diisi'],
@@ -30,3 +30,5 @@ let playerSchema = mongoose.Schema({
 		require: [true, 'email harus diisi'],
 	},
 });
+
+module.exports = mongoose.model('Player', supplierSchema);
