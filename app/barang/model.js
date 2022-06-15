@@ -15,7 +15,6 @@ let barangSchema = mongoose.Schema({
 	},
 	reservationdate: {
 		type: String,
-		default: Date,
 	},
 	requirement: {
 		type: String,
