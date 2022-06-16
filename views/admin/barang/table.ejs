@@ -1,20 +1,20 @@
 <table id="example2" class="table table-bordered table-hover">
   <thead>
-  <tr>
-    <th>No.</th>
-    <th>Nama Barang</th>
-    <th>Kategori</th>
-    <th>Lokasi</th>
-    <th>Tanggal Akhir Pengadaan</th>
-    <th>Kebutuhan</th>
-    <th>Deskripsi</th>
-    <th>Aksi</th>
-  </tr>
+    <tr>
+      <th>No.</th>
+      <th>Nama Barang</th>
+      <th>Kategori</th>
+      <th>Lokasi</th>
+      <th>Tanggal Akhir Pengadaan</th>
+      <th>Kebutuhan</th>
+      <th>Deskripsi</th>
+      <th>Aksi</th>
+    </tr>
   </thead>
   <tbody>
-  <% for(let i=0;i < barang.length; i++){%>
+    <% for(let i=0;i < barang.length; i++){%>
     <tr>
-      <td><%= i + 1 %></td>
+      <td>GJT-<%= i + 1 %></td>
       <td><%= barang[i].name %></td>
       <td><%= barang[i]?.category?.name ?? '-' %></td>
       <td><%= barang[i]?.location?.name ?? '-' %></td>
@@ -22,8 +22,7 @@
       <td><%= barang[i].requirement %></td>
       <td><%= barang[i].description %></td>
       <td>
-        <form action="/barang/delete/<%= barang[i]._id %>?_method=DELETE"
-          method="POST">
+        <form action="/barang/delete/<%= barang[i]._id %>?_method=DELETE" method="POST">
           <a href="/barang/edit/<%= barang[i]._id %>" class="btn btn-warning">
             <i class="fas fa-pencil-alt"></i>Ubah</a>
           <button class="btn btn-danger">
