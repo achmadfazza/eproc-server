@@ -90,7 +90,7 @@ module.exports = {
 		try {
 			// coba dulu
 			const { id } = req.params;
-			const { name, requirement, description, category, location } = req.body;
+			const { name, requirement, description, category, location, reservationdate } = req.body;
 
 			await Barang.findByIdAndUpdate(
 				{
@@ -102,6 +102,7 @@ module.exports = {
 					description,
 					category,
 					location,
+					reservationdate,
 				}
 			);
 			req.flash('alertMessage', 'Berhasil Ubah Barang');

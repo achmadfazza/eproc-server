@@ -63,7 +63,7 @@
                     <label>Tanggal</label>
                     <div class="input-group date" data-target-input="nearest">
                       <input type="text" id="reservationdate" name="reservationdate"
-                        value="<%= barang.reservationdate %>" class=" form-control datetimepicker-input"
+                        value="<%= barang.reservationdate %> class=" form-control datetimepicker-input"
                         data-target="#reservationdate" />
                       <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
@@ -76,8 +76,9 @@
                       id="requirement">
                   </div>
                   <div class="form-group">
-                    <label>Deskripsi</label>
-                    <textarea class="form-control" id="description" rows="4"></textarea>
+                    <label for="name">Deskripsi</label>
+                    <input type="text" value="<%= barang.description %>" name="description" class="form-control"
+                      id="description">
                   </div>
                 </div>
                 <div class="card-footer">
@@ -87,19 +88,14 @@
             </div>
           </div>
         </div>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias itaque repudiandae adipisci impedit
+        consequuntur. Tempore tenetur doloribus velit autem itaque, quos natus perspiciatis commodi. Qui nobis in eius
+        ipsa illum!
       </div>
     </div>
 </div>
-<script>
-  // textarea
-  const text = document.getElementById('description');
-  text.value += "<%= barang.description %>"
-  text.addEventListener('input', function handleChange(event) {
-    console.log(event.target.value);
-  });
-</script>
 </section>
-
+</div>
 
 <%- include ('../../partials/footer.ejs')%>
 <%- include ('../../partials/js.ejs') %>
