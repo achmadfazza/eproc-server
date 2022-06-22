@@ -16,6 +16,7 @@ const barangRouter = require("./app/barang/router");
 const loginRouter = require("./app/login/router");
 const usersRouter = require("./app/users/router");
 const transactionRouter = require("./app/transaction/router");
+const playerRouter = require("./app/supplier/router");
 
 var app = express();
 const URL = "/api/v1";
@@ -55,6 +56,7 @@ app.use("/users", usersRouter);
 app.use("/transaction", transactionRouter);
 
 // api
+app.use(`${URL}/players`, playerRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
