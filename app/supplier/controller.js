@@ -5,7 +5,7 @@ const Location = require("../location/model");
 module.exports = {
 	landingPage: async (req, res) => {
 		try {
-			const barang = await Barang.find().select("_id name category location reservationdate description");
+			const barang = await Barang.find().select("_id name reservationdate description");
 
 			if (!barang) {
 				return res.status(404).json({ message: "Barang tidak ditemukan.!" });
