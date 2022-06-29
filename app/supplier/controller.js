@@ -11,7 +11,7 @@ module.exports = {
 				return res.status(404).json({ message: "Barang tidak ditemukan.!" });
 			}
 
-			res.status(200).json({ barang });
+			res.status(200).json({ data: barang });
 		} catch (err) {
 			res.status(500).json({ message: err.message || "Internal Server Error" });
 		}
@@ -25,7 +25,7 @@ module.exports = {
 				return res.status(400).json({ message: "Barang tidak ditemukan" });
 			}
 
-			res.status(200).json({ barang });
+			res.status(200).json({ data: barang });
 		} catch (err) {
 			res.status(500).json({ message: err.message || "Internal server error" });
 		}
@@ -35,7 +35,7 @@ module.exports = {
 		try {
 			const category = await Category.find();
 
-			res.status(200).json({ category });
+			res.status(200).json({ data: category });
 		} catch (err) {
 			res.status(500).json({ message: err.message || "Internal Server Error" });
 		}
@@ -49,7 +49,7 @@ module.exports = {
 				return res.status(404).json({ message: "Barang tidak ditemukan.!" });
 			}
 
-			res.status(200).json({ location });
+			res.status(200).json({ data: location });
 		} catch (err) {
 			res.status(500).json({ message: err.message || "Internal Server Error" });
 		}
