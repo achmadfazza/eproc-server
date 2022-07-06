@@ -27,7 +27,11 @@ module.exports = {
 				return res.status(400).json({ message: "Barang tidak ditemukan" });
 			}
 
-			res.status(200).json({ data: barang });
+			res.status(200).json({
+				data: {
+					detail: barang,
+				},
+			});
 		} catch (err) {
 			res.status(500).json({ message: err.message || "Internal server error" });
 		}
