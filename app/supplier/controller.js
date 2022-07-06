@@ -19,7 +19,9 @@ module.exports = {
 
 	detailPage: async (req, res) => {
 		try {
-			const barang = await Barang.findOne({ _id: req.params.id }).populate("category").populate("location");
+			const barang = await Barang.findOne({ _id: req.params.id })
+				.populate("category", "_id name")
+				.populate("location", "_id name");
 
 			if (!barang) {
 				return res.status(400).json({ message: "Barang tidak ditemukan" });
