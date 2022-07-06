@@ -5,7 +5,8 @@
       <th>Nama Barang</th>
       <th>Kategori</th>
       <th>Lokasi</th>
-      <th>Tanggal Akhir Pengadaan</th>
+      <th>Tanggal Pembukaan</th>
+      <th>Tanggal Penutupan</th>
       <th>Kebutuhan</th>
       <th>Deskripsi</th>
       <th>Aksi</th>
@@ -19,6 +20,7 @@
       <td><%= barang[i]?.category?.name ?? '-' %></td>
       <td><%= barang[i]?.location?.name ?? '-' %></td>
       <td><%= barang[i].reservationdate %></td>
+      <td><%= barang[i].endingdate %></td>
       <td><%= barang[i].requirement %></td>
       <td><%= barang[i].description %>
       </td>
