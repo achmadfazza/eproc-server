@@ -5,7 +5,10 @@ const Location = require("../location/model");
 module.exports = {
 	landingPage: async (req, res) => {
 		try {
-			const barang = await Barang.find().select("_id name reservationdate description endingdate").populate("location");
+			const barang = await Barang.find()
+				.select("_id name reservationdate description endingdate")
+				.populate("location")
+				.populate("category");
 
 			if (!barang) {
 				return res.status(404).json({ message: "Barang tidak ditemukan.!" });
