@@ -1,34 +1,61 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-let supplierSchema = mongoose.Schema({
-	namaSupplier: {
-		type: String,
-		require: [true, 'nama harus diisi'],
+const bcrypt = require("bcryptjs");
+
+const HASH_ROUND = 10;
+
+let supplierSchema = mongoose.Schema(
+	{
+		email: {
+			type: String,
+			require: [true, "email harus diisi"],
+		},
+		name: {
+			type: String,
+			require: [true, "email harus diisi"],
+			maxlength: [225, "panjang nama harus antara 3 - 225 karakter"],
+			minlength: [3, "panjang nama harus antara 3 - 225 karakter"],
+		},
+		username: {
+			type: String,
+			require: [true, "nama harus diisi"],
+			maxlength: [225, "panjang nama harus antara 3 - 225 karakter"],
+			minlength: [3, "panjang nama harus antara 3 - 225 karakter"],
+		},
+		password: {
+			type: String,
+			require: [true, "kata sandi harus diisi"],
+			maxlength: [225, "panjang password - 225 karakter"],
+		},
+		role: {
+			type: String,
+			enum: ["admin", "user"],
+			default: "admin",
+		},
+		status: {
+			type: String,
+			enum: ["Y", "N"],
+			default: "Y",
+		},
 	},
-	alamat: {
-		type: String,
-		require: [true, 'alamat harus diisi'],
+	{ timestamps: true }
+);
+
+supplierSchema.path("email").validate(
+	async function (value) {
+		try {
+			const count = await this.model("Suplier").countDocuments({ email: value });
+			return !count;
+		} catch (err) {
+			throw err;
+		}
 	},
-	jenisSupplier: {
-		type: String,
-		require: [true, 'jenis supplier harus diisi'],
-	},
-	npwp: {
-		type: String,
-		require: [true, 'npwp harus diisi'],
-	},
-	nik: {
-		type: String,
-		require: [true, 'nik harus diisi'],
-	},
-	noTelp: {
-		type: String,
-		require: [true, 'no telp harus diisi'],
-	},
-	email: {
-		type: String,
-		require: [true, 'email harus diisi'],
-	},
+	(attr) => `${attr.value} sudah terdaftar`
+);
+
+supplierSchema.pre("save", function (next) {
+	this.password = bcrypt.hashSync(this.password, HASH_ROUND);
+	next();
 });
 
-module.exports = mongoose.model('Player', supplierSchema);
+module.exports = mongoose.model("Player", supplierSchema);
