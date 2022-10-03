@@ -17,7 +17,7 @@
 	<tbody>
 		<% for(let i=0;i < barang.length; i++){%>
 		<tr>
-			<td>GJT " "<%= i + 1 %></td>
+			<td><%= i + 1 %></td>
 			<td><%= barang[i].name %></td>
 			<td><%= barang[i]?.category?.name ?? '-' %></td>
 			<td><%= barang[i]?.location?.name ?? '-' %></td>
